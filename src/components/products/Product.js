@@ -9,18 +9,11 @@ import SearchIcon from "@material-ui/icons/Search";
 import Rating from "@material-ui/lab/Rating";
 
 function searchingFor(term) {
-  //Returns lowercase string for search bar
-  return function (x, y) {
-    
-    // let vehicleSearch = y.VehicleTypeName.toLowerCase().includes(term.toLowerCase()) 
+  return function (x) {
     let modelName =  x.Model_Name.toLowerCase().includes(term.toLowerCase()) 
     return modelName
 
   };
-
-
-    
-
 
 }
 
@@ -35,22 +28,18 @@ export default class Products extends Component {
     this.searchHandler = this.searchHandler.bind(this);
   }
   searchHandler(event) {
-    //Sets the state with search input
     this.setState({ term: event.target.value });
   }
 
   render() {
     const { term, product } = this.state;
     return (
-      //Renders list of products and search bar
       <div className="product-display">
         <Autocomplete
           className="searchTerm"
           freeSolo
           disableClearable
           options={this.props.products.map((product) =>  product.Model_Name)}
-          // options={this.props.products.map((product) =>  product.VehicleTypeName)}
-
           renderInput={(params) => (
             <TextField
               {...params}
@@ -78,9 +67,6 @@ export default class Products extends Component {
               </a>
               <div className="product-name">{product.Make_Name}</div>
               <div className="product-store">{product.Model_Name}</div>
-              {/* <div className="product-price">
-                {formatCurrency(product.Model_Name)}
-              </div> */}
               <Rating name="read-only" defaultValue={4} readOnly />
               <div className="product-fitter">
                 <div className="product-fit">

@@ -6,10 +6,7 @@ import MenuItem from "@material-ui/core/MenuItem";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
 import "./filter.css";
-import Rating from "@material-ui/lab/Rating";
-import Typography from "@material-ui/core/Typography";
-import Box from "@material-ui/core/Box";
-import { Slider } from "@material-ui/core";
+
 
 const styles = (theme) => ({
   button: {
@@ -22,7 +19,6 @@ const styles = (theme) => ({
     minWidth: 140,
   },
 });
-//This component renders the select drop down method for filtering
 class ControlledOpenSelect extends React.Component {
   state = {
     age: "",
